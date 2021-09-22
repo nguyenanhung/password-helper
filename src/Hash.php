@@ -142,21 +142,5 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
 
             return $time->format('Y-m-d H:i:s');
         }
-
-        /**
-         * Function zuluTime
-         *
-         * @return string
-         * @throws \Exception
-         * @author   : 713uk13m <dev@nguyenanhung.com>
-         * @copyright: 713uk13m <dev@nguyenanhung.com>
-         * @time     : 07/28/2021 35:16
-         */
-        public static function zuluTime()
-        {
-            $dateUTC = new DateTime("now", new DateTimeZone("UTC"));
-
-            return $dateUTC->format('Y-m-d\TH:i:s\Z');
-        }
     }
 }
