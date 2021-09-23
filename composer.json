@@ -19,9 +19,9 @@
         }
     ],
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.0",
         "ext-mbstring": "*",
-        "nguyenanhung/math-helper": "^1.0"
+        "nguyenanhung/math-helper": "^2.0"
     },
     "autoload": {
         "psr-4": {

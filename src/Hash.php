@@ -11,7 +11,6 @@
 namespace nguyenanhung\Libraries\Password;
 
 use DateTime;
-use DateTimeZone;
 
 if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
     /**
@@ -40,7 +39,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/18/18 03:04
          *
          */
-        public static function generateHashValue($str = '')
+        public static function generateHashValue(string $str = ''): string
         {
             return hash(self::HASH_ALGORITHM, $str);
         }
@@ -53,7 +52,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/19/18 10:08
          *
          */
-        public static function generateUserPasswordRandom()
+        public static function generateUserPasswordRandom(): string
         {
             return Password::randomString(self::USER_PASSWORD_RANDOM_ALGORITHM, self::USER_PASSWORD_RANDOM_LENGTH);
         }
@@ -66,7 +65,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/19/18 10:08
          *
          */
-        public static function generateUserToken()
+        public static function generateUserToken(): string
         {
             return Password::randomString(self::USER_TOKEN_ALGORITHM);
         }
@@ -79,7 +78,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/19/18 10:08
          *
          */
-        public static function generateUserSaltKey()
+        public static function generateUserSaltKey(): string
         {
             return Password::randomString(self::USER_SALT_ALGORITHM);
         }
@@ -92,7 +91,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/23/18 17:15
          *
          */
-        public static function generateRequestId()
+        public static function generateRequestId(): string
         {
             return date('YmdHis') . Password::randomString('numeric', 10);
         }
@@ -105,7 +104,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 2018-12-06 22:04
          *
          */
-        public static function generateVinaRequestId()
+        public static function generateVinaRequestId(): string
         {
             return date('YmdHis') . ceil(microtime(true) * 1000);
         }
@@ -120,7 +119,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 11/23/18 17:16
          *
          */
-        public static function generateOTPCode($length = 6)
+        public static function generateOTPCode(int $length = 6): string
         {
             return Password::randomString('numeric', $length);
         }
@@ -136,7 +135,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Hash')) {
          * @time  : 2018-12-06 16:03
          *
          */
-        public static function generateOTPExpireTime($hour = 4)
+        public static function generateOTPExpireTime(int $hour = 4): string
         {
             $time = new DateTime('+' . $hour . ' days');
 

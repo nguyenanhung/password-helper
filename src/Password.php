@@ -42,7 +42,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 09/22/2021 57:43
          */
-        public static function randomString($type = 'alnum', $len = 8)
+        public static function randomString(string $type = 'alnum', int $len = 8)
         {
             switch ($type) {
                 case 'basic':
@@ -133,7 +133,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 07/28/2021 49:04
          */
-        public static function generateStrongPassword($length = 20, $add_dashes = false, $available_sets = 'hung')
+        public static function generateStrongPassword(int $length = 20, bool $add_dashes = false, string $available_sets = 'hung'): string
         {
             $sets = [];
             if (strpos($available_sets, 'h') !== false) {
@@ -183,7 +183,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 10/30/19 04:14
          */
-        public static function validStrongPassword($password = '')
+        public static function validStrongPassword(string $password = ''): bool
         {
             $containsSmallLetter = preg_match('/[a-z]/', $password); // Yêu cầu có ít nhất 1 ký tự viết thường
             $containsCapsLetter  = preg_match('/[A-Z]/', $password); // Yêu cầu có ít nhất 1 ký tự viết hoa
@@ -203,7 +203,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 10/30/19 46:50
          */
-        public static function hashPassword($password = '')
+        public static function hashPassword(string $password = '')
         {
             return password_hash($password, PASSWORD_DEFAULT);
         }
@@ -218,7 +218,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 07/28/2021 45:45
          */
-        public static function reHashPassword($hash = '')
+        public static function reHashPassword(string $hash = ''): bool
         {
             return password_needs_rehash($hash, PASSWORD_DEFAULT);
         }
@@ -233,7 +233,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 07/28/2021 45:29
          */
-        public static function passwordGetInfo($hash = '')
+        public static function passwordGetInfo(string $hash = '')
         {
             return password_get_info($hash);
         }
@@ -249,7 +249,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 10/30/19 02:54
          */
-        public static function verifyPassword($password = '', $hash = '')
+        public static function verifyPassword(string $password = '', string $hash = ''): bool
         {
             return password_verify($password, $hash);
         }
@@ -265,7 +265,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 07/28/2021 45:19
          */
-        public static function changeHashPassword($password = '', $hash = '')
+        public static function changeHashPassword(string $password = '', string $hash = '')
         {
             // Check if a newer hashing algorithm is available
             // or the cost has changed
@@ -288,7 +288,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 08/18/2021 50:16
          */
-        public static function hashUserPassword($password = '', $salt = '')
+        public static function hashUserPassword(string $password = '', string $salt = '')
         {
             $passwordString = $password . self::$passwordPrefix . $salt;
 
@@ -305,7 +305,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 08/18/2021 50:20
          */
-        public static function hashUserPasswordGetInfo($hash = '')
+        public static function hashUserPasswordGetInfo(string $hash = '')
         {
             return password_get_info($hash);
         }
@@ -320,7 +320,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 08/18/2021 50:23
          */
-        public static function userPasswordNeedSReHash($hash = '')
+        public static function userPasswordNeedSReHash(string $hash = ''): bool
         {
             return password_needs_rehash($hash, self::$passwordAlgorithm, self::$passwordOptions);
         }
@@ -336,7 +336,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @copyright: 713uk13m <dev@nguyenanhung.com>
          * @time     : 08/18/2021 50:26
          */
-        public static function passwordVerify($password = '', $hash = '')
+        public static function passwordVerify(string $password = '', string $hash = ''): bool
         {
             return password_verify($password, $hash);
         }
