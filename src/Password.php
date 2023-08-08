@@ -37,10 +37,10 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
          * @param string $type
          * @param int    $len
          *
-         * @return false|int|string
+         * @return int|string
          * @author   : 713uk13m <dev@nguyenanhung.com>
          * @copyright: 713uk13m <dev@nguyenanhung.com>
-         * @time     : 09/22/2021 57:43
+         * @time     : 08/08/2023 17:40
          */
         public static function randomString(string $type = 'alnum', int $len = 8)
         {
@@ -66,7 +66,7 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
                             break;
                     }
 
-                    return substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+                    return mb_substr(str_shuffle(str_repeat($pool, ceil($len / mb_strlen($pool)))), 0, $len);
                 case 'unique': // todo: remove in 3.1+
                 case 'md5':
                     return md5(uniqid(mt_rand(), true));
@@ -136,16 +136,16 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
         public static function generateStrongPassword(int $length = 20, bool $add_dashes = false, string $available_sets = 'hung'): string
         {
             $sets = [];
-            if (strpos($available_sets, 'h') !== false) {
+            if (mb_strpos($available_sets, 'h') !== false) {
                 $sets[] = 'abcdefghjkmnpqrstuvwxyz';
             }
-            if (strpos($available_sets, 'u') !== false) {
+            if (mb_strpos($available_sets, 'u') !== false) {
                 $sets[] = 'ABCDEFGHJKMNPQRSTUVWXYZ';
             }
-            if (strpos($available_sets, 'n') !== false) {
+            if (mb_strpos($available_sets, 'n') !== false) {
                 $sets[] = '0123456789';
             }
-            if (strpos($available_sets, 'g') !== false) {
+            if (mb_strpos($available_sets, 'g') !== false) {
                 $sets[] = '!@#$%&*?';
             }
             $all      = '';
@@ -164,9 +164,9 @@ if (!class_exists('nguyenanhung\Libraries\Password\Password')) {
             }
             $dash_len = floor(sqrt($length));
             $dash_str = '';
-            while (strlen($password) > $dash_len) {
-                $dash_str .= substr($password, 0, $dash_len) . '-';
-                $password = substr($password, $dash_len);
+            while (mb_strlen($password) > $dash_len) {
+                $dash_str .= mb_substr($password, 0, $dash_len) . '-';
+                $password = mb_substr($password, $dash_len);
             }
             $dash_str .= $password;
 
