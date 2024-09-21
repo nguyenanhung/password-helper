@@ -1,4 +1,9 @@
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/password-helper/v)](https://packagist.org/packages/nguyenanhung/password-helper) [![Total Downloads](http://poser.pugx.org/nguyenanhung/password-helper/downloads)](https://packagist.org/packages/nguyenanhung/password-helper) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/password-helper/v/unstable)](https://packagist.org/packages/nguyenanhung/password-helper) [![License](http://poser.pugx.org/nguyenanhung/password-helper/license)](https://packagist.org/packages/nguyenanhung/password-helper) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/password-helper/require/php)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/password-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/password-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/password-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/password-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/password-helper.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/password-helper)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/password-helper/php)](https://packagist.org/packages/nguyenanhung/password-helper)
 
 # Password Helper
 
